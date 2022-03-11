@@ -176,7 +176,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/wmpseek-api/dev/1646958096811-2022-03-11T00:21:36.811Z/wmpseek-api.zip"
+                "S3Key": "serverless/wmpseek-api/dev/1646958513533-2022-03-11T00:28:33.533Z/wmpseek-api.zip"
               },
               "Handler": "api.createClip",
               "Runtime": "nodejs14.x",
@@ -200,14 +200,14 @@
               "CreateClipLogGroup"
             ]
           },
-          "CreateClipLambdaVersionKKKOvSor8iYb3rigFbtGJbbt3nKZXcopJf8WRQz8rZA": {
+          "CreateClipLambdaVersion5IDXOu6tkcAbQY30MqVKnt87Vg9I7ZKGJksAF8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CreateClipLambdaFunction"
               },
-              "CodeSha256": "RbrEk0F9PY9RZad8C9hYHkp89SYBnDfhI1qxpzcHTSw="
+              "CodeSha256": "/eTV92uloZI1QNtn/CN55VHKiD8838qaucL80aGcr3k="
             }
           },
           "ApiGatewayRestApi": {
@@ -328,7 +328,7 @@
               "CreateClipLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1646958095457": {
+          "ApiGatewayDeployment1646958512100": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -476,8 +476,8 @@
                 }
               ],
               "ProvisionedThroughput": {
-                "ReadCapacityUnits": 100,
-                "WriteCapacityUnits": 100
+                "ReadCapacityUnits": 1000,
+                "WriteCapacityUnits": 1000
               }
             }
           }
@@ -494,7 +494,7 @@
           "CreateClipLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "CreateClipLambdaVersionKKKOvSor8iYb3rigFbtGJbbt3nKZXcopJf8WRQz8rZA"
+              "Ref": "CreateClipLambdaVersion5IDXOu6tkcAbQY30MqVKnt87Vg9I7ZKGJksAF8"
             },
             "Export": {
               "Name": "sls-wmpseek-api-dev-CreateClipLambdaFunctionQualifiedArn"
@@ -659,7 +659,7 @@
         "memory": 128,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "CreateClipLambdaVersionKKKOvSor8iYb3rigFbtGJbbt3nKZXcopJf8WRQz8rZA"
+        "versionLogicalId": "CreateClipLambdaVersion5IDXOu6tkcAbQY30MqVKnt87Vg9I7ZKGJksAF8"
       }
     },
     "resources": {
@@ -681,8 +681,8 @@
               }
             ],
             "ProvisionedThroughput": {
-              "ReadCapacityUnits": 100,
-              "WriteCapacityUnits": 100
+              "ReadCapacityUnits": 1000,
+              "WriteCapacityUnits": 1000
             }
           }
         }
@@ -713,7 +713,7 @@
     "artifact": "/Users/matthew/Desktop/wmpseekapi/.serverless/wmpseek-api.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/wmpseek-api/dev/1646958096811-2022-03-11T00:21:36.811Z",
+    "artifactDirectoryName": "serverless/wmpseek-api/dev/1646958513533-2022-03-11T00:28:33.533Z",
     "artifact": "wmpseek-api.zip"
   }
 }

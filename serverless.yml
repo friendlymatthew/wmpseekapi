@@ -45,5 +45,5 @@ resources:
           - AttributeName: clipId
             KeyType: HASH
         ProvisionedThroughput:
-          ReadCapacityUnits: 100
-          WriteCapacityUnits: 100
+          ReadCapacityUnits: 1000
+          WriteCapacityUnits: 1000

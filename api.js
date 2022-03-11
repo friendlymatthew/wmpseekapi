@@ -1,11 +1,9 @@
 const db = require("./db");
 const {
-  GetItemCommand,
   PutItemCommand,
-  DeleteItemCommand,
 } = require("@aws-sdk/client-dynamodb");
 
-const { marshall, unmarshall } = require("@aws-sdk/util-dynamodb");
+const { marshall } = require("@aws-sdk/util-dynamodb");
 
 
 const createClip = async (event) => {
@@ -42,7 +40,6 @@ const createClip = async (event) => {
 
   return response;
 };
-
 
 module.exports = {
   createClip,
