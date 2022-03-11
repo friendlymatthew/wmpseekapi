@@ -1,0 +1,49 @@
+service: wmpseek-api
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  region: us-east-1
+  environment:
+    DYNAMODB_TABLE_NAME: ${self:custom.clipsTableName}
+
+custom:
+  clipsTableName: clips-table-${self:provider.stage}
+
+plugins:
+  - serverless-iam-roles-per-function
+
+functions:
+  createClip:
+    handler: api.createClip
+    name: create-clip
+    memorySize: 128 # mb
+    timeout: 5 # seconds
+    events:
+      - http:
+          path: clip
+          method: POST
+          cors: true
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - "dynamodb:PutItem"
+        Resource: !GetAtt ClipsTable.Arn
+  
+
+resources:
+  Resources:
+    ClipsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:custom.clipsTableName}
+        AttributeDefinitions:
+          - AttributeName: clipId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: clipId
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 100
+          WriteCapacityUnits: 100
